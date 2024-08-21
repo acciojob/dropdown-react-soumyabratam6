@@ -74,7 +74,7 @@ function App()
       </div>
 
       <div className="form-group">
-        <label htmlFor="city">City:</label>
+        <label htmlFor="city" id="city-title">City:</label>
         <select id="city" className="form-control" value={selectedCityIndex} onChange={handleCityChange}>
           {selectedState.cities.map((city, index) => (
             <option key={index} value={index}>
