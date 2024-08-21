@@ -88,12 +88,12 @@ function App()
       <div className="form-group">
         <label htmlFor="city" id="city-title">City:</label>
         <select id="city" className="form-control" value={selectedCityIndex} onChange={handleCityChange}>
-          {selectedState.cities.map((city, index) => (
-            <option key={index} value={index}>
-              {city.name}
-            </option>
-          ))}
-        </select>
+  {selectedState.cities.map((city, index) => (
+    <option key={index} value={index}>
+      {city.name}
+    </option>
+  ))}
+</select>
       </div>
 
       <div className="form-group">
