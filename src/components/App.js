@@ -61,7 +61,6 @@ function App()
 
   return (
     <div id="main" className="container">
-      <h1 id="state-title">Madhya Pradesh</h1>
       <div className="form-group">
         <label htmlFor="state">State:</label>
         <select id="state" className="form-control" value={selectedStateIndex} onChange={handleStateChange}>
@@ -95,18 +94,18 @@ function App()
         </select>
       </div>
 
-      <div id="state-name">
-        <h3>State: {selectedState.name}</h3>
+      <div id="state-name" >
+        <h3 id="state-title">State: {selectedState.name}</h3>
         <p id="state-description">{selectedState.description}</p>
       </div>
 
       <div id="city-name">
-        <h3>City: {selectedCity.name}</h3>
+        <h3 id="city-title">City: {selectedCity.name}</h3>
         <p id="city-description">{selectedCity.description}</p>
       </div>
 
       <div id="landmark-name">
-        <h3>Landmark: {selectedLandmark.name}</h3>
+        <h3 id="landmark-title">Landmark: {selectedLandmark.name}</h3>
         <p id="landmark-description">{selectedLandmark.description}</p>
       </div>
     </div>
