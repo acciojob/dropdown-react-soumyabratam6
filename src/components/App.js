@@ -36,31 +36,35 @@ const states = [{
 
 function App() 
 {
-  const [selectedState, setSelectedState] = useState(0);
-  const [selectedCity, setSelectedCity] = useState(0);
-  const [selectedLandmark, setSelectedLandmark] = useState(0);
+  const [selectedStateIndex, setSelectedStateIndex] = useState(0);
+  const [selectedCityIndex, setSelectedCityIndex] = useState(0);
+  const [selectedLandmarkIndex, setSelectedLandmarkIndex] = useState(0);
 
   const handleStateChange = (e) => {
-    setSelectedState(e.target.value);
-    setSelectedCity(0);
-    setSelectedLandmark(0)
+    setSelectedStateIndex(e.target.value);
+    setSelectedCityIndex(0);  // Reset City and Landmark on State change
+    setSelectedLandmarkIndex(0);
   };
 
   const handleCityChange = (e) => {
-    setSelectedCity(e.target.value);
-    setSelectedLandmark(0)
+    setSelectedCityIndex(e.target.value);
+    setSelectedLandmarkIndex(0);  // Reset Landmark on City change
   };
 
   const handleLandmarkChange = (e) => {
-    setSelectedLandmark(e.target.value);
+    setSelectedLandmarkIndex(e.target.value);
   };
 
+  const selectedState = states[selectedStateIndex];
+  const selectedCity = selectedState.cities[selectedCityIndex];
+  const selectedLandmark = selectedCity.landmarks[selectedLandmarkIndex];
+
   return (
-    <div id="main">
-      <h1>Dropdown Selection</h1>
-      <div>
-        <label htmlFor="state">State: </label>
-        <select id="state" value={selectedState} onChange={handleStateChange}>
+    <div id="main" className="container">
+      <h1 id="state-title">Dropdown React</h1>
+      <div className="form-group">
+        <label htmlFor="state">State:</label>
+        <select id="state" className="form-control" value={selectedStateIndex} onChange={handleStateChange}>
           {states.map((state, index) => (
             <option key={index} value={index}>
               {state.name}
@@ -69,10 +73,10 @@ function App()
         </select>
       </div>
 
-      <div>
-        <label htmlFor="city">City: </label>
-        <select id="city" value={selectedCity} onChange={handleCityChange}>
-          {states[selectedState].cities.map((city, index) => (
+      <div className="form-group">
+        <label htmlFor="city">City:</label>
+        <select id="city" className="form-control" value={selectedCityIndex} onChange={handleCityChange}>
+          {selectedState.cities.map((city, index) => (
             <option key={index} value={index}>
               {city.name}
             </option>
@@ -80,10 +84,10 @@ function App()
         </select>
       </div>
 
-      <div>
-        <label htmlFor="landmark">Landmark: </label>
-        <select id="landmark" value={selectedLandmark} onChange={handleLandmarkChange}>
-          {states[selectedState].cities[selectedCity].landmarks.map((landmark, index) => (
+      <div className="form-group">
+        <label htmlFor="landmark">Landmark:</label>
+        <select id="landmark" className="form-control" value={selectedLandmarkIndex} onChange={handleLandmarkChange}>
+          {selectedCity.landmarks.map((landmark, index) => (
             <option key={index} value={index}>
               {landmark.name}
             </option>
@@ -92,18 +96,18 @@ function App()
       </div>
 
       <div id="state-name">
-        <h2>State: {states[selectedState].name}</h2>
-        <p id="state-description">{states[selectedState].description}</p>
+        <h3>State: {selectedState.name}</h3>
+        <p id="state-description">{selectedState.description}</p>
       </div>
 
       <div id="city-name">
-        <h2>City: {states[selectedState].cities[selectedCity].name}</h2>
-        <p id="city-description">{states[selectedState].cities[selectedCity].description}</p>
+        <h3>City: {selectedCity.name}</h3>
+        <p id="city-description">{selectedCity.description}</p>
       </div>
 
       <div id="landmark-name">
-        <h2>Landmark: {states[selectedState].cities[selectedCity].landmarks[selectedLandmark].name}</h2>
-        <p id="landmark-description">{states[selectedState].cities[selectedCity].landmarks[selectedLandmark].description}</p>
+        <h3>Landmark: {selectedLandmark.name}</h3>
+        <p id="landmark-description">{selectedLandmark.description}</p>
       </div>
     </div>
   );
