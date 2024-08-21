@@ -43,12 +43,12 @@ function App()
   const handleStateChange = (e) => {
     setSelectedState(e.target.value);
     setSelectedCity(0);
-    setSelectedLandmark(0);
+    setSelectedLandmark(0)
   };
 
   const handleCityChange = (e) => {
     setSelectedCity(e.target.value);
-    setSelectedLandmark(0);
+    setSelectedLandmark(0)
   };
 
   const handleLandmarkChange = (e) => {
