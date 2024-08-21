@@ -61,7 +61,7 @@ function App()
 
   return (
     <div id="main" className="container">
-      <h1 id="state-title">Dropdown React</h1>
+      <h1 id="state-title">Madhya Pradesh</h1>
       <div className="form-group">
         <label htmlFor="state">State:</label>
         <select id="state" className="form-control" value={selectedStateIndex} onChange={handleStateChange}>
