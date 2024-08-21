@@ -31,7 +31,19 @@ const states = [{
       name : "Ajaypur",
       description:"Little less known city Ajaypur.",
     }]
-  }]
+  },
+  {
+    name : "Khajuraho",
+    description:"Khajuraho is a city in west-central India. It’s known for the 7-story Rajwada Palace and the Lal Baag Palace, which date back to Indore’s 19th-century Holkar dynasty.",
+    landmarks :[{
+      name : "Kandariya Mahadeva Temple",
+      description:"Dr. Ambedkar Nagar, commonly known as Mhow, is a cantonment in the Indore district in Madhya Pradesh state of India. It is located 23 kilometres south-west of Indore city, towards Mumbai on the old Mumbai-Agra Road.",        
+    },{
+      name : " Khajuraho",
+      description:" Khajuraho is a city in the Malwa region of the Indian state of Madhya Pradesh. The municipality was formerly the seat of two princely states during the British Raj, Dewas Junior state and Dewas Senior state, ruled by the Puar clan of Maratha.",
+    }]
+  }
+]
 }];
 
 function App() 
@@ -61,6 +73,7 @@ function App()
 
   return (
     <div id="main" className="container">
+      <h3 id="state-title">Madhya Pradesh</h3>
       <div className="form-group">
         <label htmlFor="state">State:</label>
         <select id="state" className="form-control" value={selectedStateIndex} onChange={handleStateChange}>
