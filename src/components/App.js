@@ -73,7 +73,7 @@ function App()
 
   return (
     <div id="main" className="container">
-      <h3 id="state-title">Madhya Pradesh</h3>
+      <h3 id="state-title">{selectedState.name}</h3>
       <div className="form-group">
         <label htmlFor="state">State:</label>
         <select id="state" className="form-control" value={selectedStateIndex} onChange={handleStateChange}>
@@ -86,7 +86,7 @@ function App()
       </div>
 
       <div className="form-group">
-        <label htmlFor="city" id="city-title">City:</label>
+      <label htmlFor="city" id="city-title">{selectedCity.name}</label>
         <select id="city" className="form-control" value={selectedCityIndex} onChange={handleCityChange}>
   {selectedState.cities.map((city, index) => (
     <option key={index} value={index}>
@@ -108,7 +108,7 @@ function App()
       </div>
 
       <div id="state-name" >
-        <h3 id="state-title">State: {selectedState.name}</h3>
+      <h3 id="state-title">{selectedState.name}</h3>
         <p id="state-description">{selectedState.description}</p>
       </div>
 
